@@ -113,10 +113,11 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		
 		Utilities.clickOnRecord();
 		try {
-			Runtime.getRuntime().exec("adb -s " + Web_Constants.UDID + " shell input keyevent KEYCODE_DPAD_UP");
-			eventUtils.sleep(2);
-			Runtime.getRuntime().exec("adb -s " + Web_Constants.UDID + " shell input keyevent KEYCODE_ENTER");
-		} catch (IOException e) {
+			
+			eventUtils.upButton(test);
+			
+			eventUtils.okButton(test);
+			} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

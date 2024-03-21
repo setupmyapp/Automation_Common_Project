@@ -465,6 +465,17 @@ public class BaseTest extends ReportUtils {
 			}
 			options.setDisableWindowAnimation(true);
 			options.setCapability("–session-override", true);
+			
+			try {
+				
+//				 -s " + Web_Constants.UDID +
+//				Runtime.getRuntime().exec("adb shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+					Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+					
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
 
 			try {
 				driver = new AndroidDriver(new URL(Web_Constants.HUB_URL), options);
@@ -505,13 +516,16 @@ public class BaseTest extends ReportUtils {
 				options.setCapability("bstack:options", browserstackOptions);
 				
 				
+				
 				try {
 					URL strAppiumURL=new URL("http://hub.browserstack.com/wd/hub");
 					driver = new AndroidDriver(strAppiumURL, options);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
-				}	
+				}
+				
+				
 				
 				
 				
@@ -545,6 +559,12 @@ public class BaseTest extends ReportUtils {
 			options.setDisableWindowAnimation(true);
 			options.setCapability("–session-override", true);
 
+			try {
+				Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			try {
 				driver = new AndroidDriver(new URL(Web_Constants.HUB_URL), options);
 				

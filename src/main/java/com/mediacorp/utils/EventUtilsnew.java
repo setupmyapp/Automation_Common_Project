@@ -985,5 +985,81 @@ public class EventUtilsnew {
 			action.moveToElement(el).doubleClick().perform();
 		}
 	}
+	public void okButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_DPAD_UP");
+			sleep(1);
+			adbCommand("KEYCODE_ENTER");
 
+//			test.info("Clicked on OK Button");
+			System.out.println("[INFO]:- Clicked on OK Button");
+		} catch (Exception e) {
+			System.err.println("Clicked on OK Button");
+//			test.warning("Not able to click on Up Button");
+		}
+	}
+
+	public void upButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_DPAD_UP");
+			sleep(1);
+//			test.info("Clicked on DPAD UP Button");
+			System.out.println("[INFO]:- Clicked on DPAD UP Button");
+		} catch (Exception e) {
+			System.err.println("Not able to click on Up Button");
+//			test.log(Status.INFO, "Not able to click on Up Button");
+		}
+	}
+
+	public void downButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_DPAD_DOWN");
+			sleep(1);
+//			test.info("Clicked on DPAD DOWN Button");
+			System.out.println("[INFO]:- Clicked on Down Button");
+		} catch (Exception e) {
+//			test.log(Status.INFO, "Not able to click on Down Button");
+			System.err.println("Not able to click on Down Button");
+		}
+	}
+
+	public void rightButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_DPAD_RIGHT");
+			sleep(1);
+//			test.info("Clicked on DPAD Right Button");
+			System.out.println("[INFO]:- Clicked on DPAD Right Button");
+		} catch (Exception e) {
+//			test.log(Status.INFO, "Not able to click on Right Button");
+			System.err.println("Not able to click on Right Button");
+		}
+	}
+
+	public void leftButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_DPAD_LEFT");
+			sleep(1);
+//			test.info("Clicked on DPAD LEFT Button");
+			System.out.println("[INFO]:- Clicked on DPAD LEFT Button");
+		} catch (Exception e) {
+//			test.log(Status.INFO, "Not able to click on Left Button");
+			System.err.println("Not able to click on Left Button");
+		}
+	}
+
+	public void backButton(ExtentTest test) {
+		try {
+			adbCommand("KEYCODE_BACK");
+			test.info("Clicked on DPAD BACK Button");
+			System.out.println("[INFO]:- Clicked on DPAD BACK Button");
+			sleep(1);
+			} catch (Exception e) {
+//			test.log(Status.INFO, "Not able to click on BACK Button");
+			System.err.println("[ERROR]:- Not able to click on BACK Button");
+		}
+	}
+
+	public void adbCommand(String command) throws Exception {
+		Runtime.getRuntime().exec("adb -s " + Web_Constants.UDID + " shell input keyevent " + command);
+	}
 }
