@@ -30,5 +30,6 @@ Feature: Smoke TestCase Functionality
     
    @Demo_LGWEBOSTV
   Scenario: Demo TestCase For Guest User playBack Functionality LGWEBOSTV
-    Given Launching the Application LGWEBOSTV
-    Then Verify the playback for the Show LGWEBOSTV
+    Given As a Anonymous user Navigate to IDP page
+    When User Selecting the Watch Now CTA from IDP page
+    Then verify the Series content should start playing

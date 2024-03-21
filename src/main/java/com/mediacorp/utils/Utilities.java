@@ -42,6 +42,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.mediacorp.pages.BasePage;
@@ -1001,5 +1004,84 @@ public class Utilities {
 			System.err.println("[EXCEPTION] Unable to DownGrading the Me Watch apk");
 		} 
 	}
+
+	public static void openCamera() 
+	{
+		 try {
+			ProcessBuilder pb = new ProcessBuilder("cmd.exe", "/c", "start microsoft.windows.camera:");
+			 pb.inheritIO();
+			 pb.start();
+			 try {
+					Thread.sleep(5000);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			 System.out.println("Camera app opened.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void clickOnRecord()
+	{
+		 try {
+			Screen screen = new Screen();
+			 Pattern takeVideoButton = new Pattern(System.getProperty("user.dir")+"\\SikuliPhotos\\2.png"); // Replace with the path to the image of the "Take Video" button
+			 screen.click(takeVideoButton);
+			 try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 System.out.println("Clicked on 'Take Video' button.");
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void stopRecord()
+	{
+		 try {
+				Screen screen = new Screen();
+				  Pattern stopVideoButton = new Pattern(System.getProperty("user.dir")+"\\SikuliPhotos\\3.png"); // Replace with the path to the image of the "Take Video" button
+		            screen.click(stopVideoButton);
+		            try {
+						Thread.sleep(5000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		            System.out.println("Clicked on 'Take Video' button.");
+		            } catch (FindFailed e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	}
+	
+	public static void closeRecordApp()
+	{
+		try {
+			Screen screen = new Screen();
+			  Pattern closeApp = new Pattern(System.getProperty("user.dir")+"\\SikuliPhotos\\4.png"); // Replace with the path to the image of the "Take Video" button
+	            screen.click(closeApp);
+	            try {
+					Thread.sleep(5000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            System.out.println("Clicked on 'Close' button.");
+	            
+		} catch (FindFailed e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	
 }

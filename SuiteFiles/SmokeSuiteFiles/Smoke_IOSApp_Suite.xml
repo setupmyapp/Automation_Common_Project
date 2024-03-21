@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Mewatch#Smoke">
+<suite name="Sony#Demo">
 		
 	<test name="SmokeWeb_Tests">
 
 
 		<classes>
-		<class name="com.mediacorp.testRunner.Smoke.SmokeSuiteIOSOnBoarding" />
+		
+		<class name="com.mediacorp.testRunner.Smoke.SmokeSuiteIOS" />
 		 
-		<class name="com.mediacorp.testRunner.Smoke.SmokeSuiteIOSApp" />
-
 		</classes>
 
 	</test>

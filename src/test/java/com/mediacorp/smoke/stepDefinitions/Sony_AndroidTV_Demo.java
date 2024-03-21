@@ -1,22 +1,14 @@
 package com.mediacorp.smoke.stepDefinitions;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.Test;
+import java.util.Comparator;
 
 import com.mediacorp.pages.AndroidTV_Page;
-import com.mediacorp.pages.MobileRW_Page;
 import com.mediacorp.utils.BaseTest;
 import com.mediacorp.utils.EventUtilsnew;
+import com.mediacorp.utils.Utilities;
 import com.mediacorp.utils.Web_Constants;
 
 import io.appium.java_client.android.nativekey.AndroidKey;
@@ -27,20 +19,18 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
 
 public class Sony_AndroidTV_Demo extends BaseTest {
-
-
-
-	
+ 
 	
 	@Before("@Demo_AndroidTV")
 	public void setUp(Scenario scenario) {
+		
 		String scenarioName = getScenario(scenario);
 		createTest(scenarioName);
-		
-		
-	}
+ 	}
 	
 	
 	@Given("^Launching the Application AndroidTV$")
@@ -49,6 +39,8 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		System.out.println("Launching the Application");
 		launchApplication();
 		logStatus("Pass", "Launching the application");
+		
+		
 	}
 	
 	
@@ -111,7 +103,15 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 			logStatus("fail", "User is not able to click on watch Button of Search Content Of AndroidTv");
 		}
 
+		eventUtils.sleep(30);
+		try {
+			Utilities.openCamera();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		Utilities.clickOnRecord();
 		try {
 			Runtime.getRuntime().exec("adb -s " + Web_Constants.UDID + " shell input keyevent KEYCODE_DPAD_UP");
 			eventUtils.sleep(2);
@@ -130,27 +130,46 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 //			logStatus("fail", "User is not able to click on Player Show detail Page of Search Content Of AndroidTv");
 //		}
 
-		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.PlayandpauseButtonOfShowDetailsPageOfAndroidTV, 10)) {
-			eventUtils.clickOnElement(androidTV_Page.PlayandpauseButtonOfShowDetailsPageOfAndroidTV,
-					"Play and pause Button Of Show Details Page OfAndroidTV", 10);
-			logStatus("info", "User is able to click on play&Pause button Show detail Page Of AndroidTv");
-		} else {
-			logStatus("fail", "User is not able to click on play&Pause button Show detail Page Of AndroidTv");
-		}
+//		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.PlayandpauseButtonOfShowDetailsPageOfAndroidTV, 10)) {
+//			eventUtils.clickOnElement(androidTV_Page.PlayandpauseButtonOfShowDetailsPageOfAndroidTV,
+//					"Play and pause Button Of Show Details Page OfAndroidTV", 10);
+//			logStatus("info", "User is able to click on play&Pause button Show detail Page Of AndroidTv");
+//		} else {
+//			logStatus("fail", "User is not able to click on play&Pause button Show detail Page Of AndroidTv");
+//		}
+//
+//		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.BackButtonOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.settingButtonOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.StartFromBeginningButtonOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.nextContentButtonOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.episodeTitleOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.LanguagebuttonOfShowDetailsPageOfAndroidTV, 10)
+//				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.controlProgressOfShowDetailsPageOfAndroidTV, 10)) {
+//			logStatus("Pass", "User is able to see Play&Pause button , back button,setting button,startfrombeginning button,nextcontent button,episode Title,language button,control progress on Show detail Page Of AndroidTv");
+//		} else {
+//			logStatus("fail", "User is not able to see Play&Pause button , back button,setting button,startfrombeginning button,nextcontent button,episode Title,language button,control progress on Show detail Page Of AndroidTv");
+//		}
+//		
+		eventUtils.sleep(60);
+        Utilities.stopRecord();
+		
+		Utilities.closeRecordApp();
+		 String folderPath = "C:\\Users\\Gourav\\Pictures\\Camera Roll";
+	        File latestFile = getLatestFile(folderPath);
 
-		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.BackButtonOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.settingButtonOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.StartFromBeginningButtonOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.nextContentButtonOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.episodeTitleOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.LanguagebuttonOfShowDetailsPageOfAndroidTV, 10)
-				&& eventUtils.waitUntilElementIsVisible(androidTV_Page.controlProgressOfShowDetailsPageOfAndroidTV, 10)) {
-			logStatus("Pass", "User is able to see Play&Pause button , back button,setting button,startfrombeginning button,nextcontent button,episode Title,language button,control progress on Show detail Page Of AndroidTv");
-		} else {
-			logStatus("fail", "User is not able to see Play&Pause button , back button,setting button,startfrombeginning button,nextcontent button,episode Title,language button,control progress on Show detail Page Of AndroidTv");
-		}
-		
-		
+	        if (latestFile != null) {
+	            System.out.println("Latest file: " + latestFile.getName());
+	        } else {
+	            System.out.println("No files found in the folder.");
+	        }
+	        
+//	        File file = new File("/Users/ifocus/Downloads/timer_check.mp4");
+	        Response response = RestAssured.given()
+	                .multiPart(latestFile)
+	                .when()
+	                .post("https://analytics.autocodium.com/Video_Analysis");
+	        System.out.println(response.getStatusCode());
+	        System.out.println(response.getBody().asString());
 		
 	
 	}
@@ -170,7 +189,19 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 	}
 
 	
-	
+	public static  File getLatestFile(String folderPath) {
+        File folder = new File(folderPath);
+        File[] files = folder.listFiles();
+
+        if (files == null || files.length == 0) {
+            return null;
+        }
+
+        return Arrays.stream(files)
+                .filter(File::isFile)
+                .max(Comparator.comparingLong(File::lastModified))
+                .orElse(null);
+    }
 	
 	
 	

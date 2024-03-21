@@ -44,7 +44,7 @@ import io.cucumber.java.en.When;
 public class LGWEBOS  extends BaseTest {
 	EventUtils eventUtils;
 	
-	@Before("@lgWebOs")
+	@Before("@Demo_LGWEBOSTV")
 	public void setUp(Scenario scenario) {
 		String scenarioName = getScenario(scenario);
 		createTest(scenarioName);
@@ -186,7 +186,7 @@ public class LGWEBOS  extends BaseTest {
 		}
 		eventUtils.sleep(30);
 	 }
-	 @After("@lgWebOs")
+	 @After("@Demo_LGWEBOSTV")
 		public void tearDown(Scenario scenario) {
 			try {
 				driver.quit();
