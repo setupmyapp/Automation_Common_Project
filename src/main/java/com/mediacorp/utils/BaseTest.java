@@ -468,11 +468,11 @@ public class BaseTest extends ReportUtils {
 			
 			try {
 				
-//				 -s " + Web_Constants.UDID +
-//				Runtime.getRuntime().exec("adb shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
-					Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
-					
-			} catch (IOException e) {
+////				 -s " + Web_Constants.UDID +
+////				Runtime.getRuntime().exec("adb shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+//					Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+//					
+			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
