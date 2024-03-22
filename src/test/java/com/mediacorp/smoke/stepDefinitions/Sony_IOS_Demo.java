@@ -23,6 +23,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import com.mediacorp.pages.Android_Page;
+import com.mediacorp.pages.IOS_Page;
 import com.mediacorp.pages.MobileRW_Page;
 import com.mediacorp.utils.BaseTest;
 import com.mediacorp.utils.EventUtilsnew;
@@ -42,7 +43,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.opentelemetry.api.metrics.ObservableLongGauge;
 
-public class Sony_IOS_Demo2 extends BaseTest {
+public class Sony_IOS_Demo extends BaseTest {
 	
 	
 
@@ -73,17 +74,17 @@ public class Sony_IOS_Demo2 extends BaseTest {
 	public void Verify_the_playback_forthe_Show_IOS() {
 		createNode("Then", "Verify the playback for the Show Android");
 		EventUtilsnew eventUtils = new EventUtilsnew(driver,test);
-		Android_Page android_Page = new Android_Page(driver);
+		IOS_Page android_Page = new IOS_Page(driver);
        
 		
 
-		eventUtils.sleep(3);
-		if (eventUtils.waitUntilElementIsVisible(android_Page.notNowbtnOfAndroid, 20)) {
-			eventUtils.clickOnElement(android_Page.notNowbtnOfAndroid, "NotNow button Of Android", 20);
-			logStatus("info", "User is able to see notification Popup Of Android");
-		} else {
-			logStatus("info", "User is not able to see notification Popup Of Android");
-		}
+//		eventUtils.sleep(3);
+//		if (eventUtils.waitUntilElementIsVisible(android_Page.notNowbtnOfAndroid, 20)) {
+//			eventUtils.clickOnElement(android_Page.notNowbtnOfAndroid, "NotNow button Of Android", 20);
+//			logStatus("info", "User is able to see notification Popup Of Android");
+//		} else {
+//			logStatus("info", "User is not able to see notification Popup Of Android");
+//		}
 		eventUtils.sleep(3);
 		if (eventUtils.waitUntilElementIsVisible(android_Page.HomeLogoOfAndroid, 20)) {
 			logStatus("pass", "User is able to see Home Logo Of Android");
@@ -107,8 +108,7 @@ public class Sony_IOS_Demo2 extends BaseTest {
 			logStatus("fail", "User is not able to enter value on Search Field Of Android");
 		}
 
-		eventUtils.sleep(2);
-		((PressesKey) driver).pressKey(new KeyEvent().withKey(AndroidKey.ENTER));
+		
 
 		eventUtils.sleep(3);
 		String searchResultContent = eventUtils.getTextOfWebelement(android_Page.searchResultContentOfAndroid, 20);
