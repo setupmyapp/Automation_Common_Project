@@ -102,7 +102,8 @@ public class Sony_IOS_Demo extends BaseTest {
 
 		eventUtils.sleep(3);
 		if (eventUtils.waitUntilElementIsVisible(android_Page.SearchFieldOfAndroid, 20)) {
-			eventUtils.enterValue(android_Page.SearchFieldOfAndroid, "Shark Tank India", "Search Field Of Android", 20);
+			eventUtils.clickOnElement(android_Page.SearchFieldOfAndroid, "Search feild", 20);
+			eventUtils.enterValue(android_Page.SearchFieldOfEnter, "Shark Tank India", "Search Field Of Android", 20);
 			logStatus("info", "User is able to enter value on Search Field Of Android");
 		} else {
 			logStatus("fail", "User is not able to enter value on Search Field Of Android");

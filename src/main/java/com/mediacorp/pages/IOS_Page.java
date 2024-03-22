@@ -32,6 +32,11 @@ public class IOS_Page {
 	@FindBy(xpath = "//XCUIElementTypeTextField[@value='Search for movies, shows, sports etc.']")
 	public WebElement SearchFieldOfAndroid;
 
+	@FindBy(xpath = "//XCUIElementTypeTextField[@value='Type your search here']")
+	public WebElement SearchFieldOfEnter;
+	
+	
+	
 	@FindBy(xpath = "//XCUIElementTypeImage[@name='Mask']")
 	public WebElement searchResultContentOfAndroid;
 
