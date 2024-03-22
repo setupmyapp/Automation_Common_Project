@@ -56,11 +56,11 @@ public class LGWEBOS  extends BaseTest {
 		   
 		options.setPlatformName("LGTV");
 		options.setAutomationName("webOS");
-		options.setDeviceName("LGTV22");
-		options.setUdid("192.168.0.37");
-		options.setCapability("deviceHost", "192.168.0.37");
-		options.setCapability("appPackage", "mediacorp.prod.temp.a");
-		options.setCapability("appId", "mediacorp.prod.temp.a");
+		options.setDeviceName("LGWEBOSTV");
+		options.setUdid("192.168.0.217");
+		options.setCapability("deviceHost", "192.168.0.217");
+		options.setCapability("appPackage", "mediacorp.prod");
+		options.setCapability("appId", "mediacorp.prod");
 		options.setCapability("chromedriverExecutable", "/Users/ifocus/Downloads/chromedriver");
 		options.setCapability("rcMode", "rc");
 		

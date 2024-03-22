@@ -156,7 +156,7 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		
 		Utilities.closeRecordApp();
 		eventUtils.sleep(10);
-		 String folderPath = "C:\\Users\\Gourav\\Pictures\\Camera Roll";
+		 String folderPath = "C:\\Users\\iFocus\\Pictures\\Camera Roll";
 	        File latestFile = getLatestFile(folderPath);
 
 	        if (latestFile != null) {
