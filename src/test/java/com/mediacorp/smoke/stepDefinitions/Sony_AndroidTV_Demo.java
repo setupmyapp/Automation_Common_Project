@@ -151,10 +151,11 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 //			logStatus("fail", "User is not able to see Play&Pause button , back button,setting button,startfrombeginning button,nextcontent button,episode Title,language button,control progress on Show detail Page Of AndroidTv");
 //		}
 //		
-		eventUtils.sleep(60);
+		eventUtils.sleep(30);
         Utilities.stopRecord();
 		
 		Utilities.closeRecordApp();
+		eventUtils.sleep(10);
 		 String folderPath = "C:\\Users\\Gourav\\Pictures\\Camera Roll";
 	        File latestFile = getLatestFile(folderPath);
 
