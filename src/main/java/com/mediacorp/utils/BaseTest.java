@@ -442,37 +442,20 @@ public class BaseTest extends ReportUtils {
 			options.setPlatformVersion(Web_Constants.DEVICE_VERSION);
 			options.setDeviceName(Web_Constants.DEVICE_NAME);
 			options.setUdid(Web_Constants.UDID);
-			options.setCapability("SYSTEM_PORT", Web_Constants.SYSTEM_PORT);
-			options.setAutoGrantPermissions(true);
-			options.setUnlockType("pin");
-			options.setUnlockKey("1111");
-
-			if (Web_Constants.ENV.equalsIgnoreCase("preprod")) {
-				options.setAppPackage(Web_Constants.Preprod_APP_PACKAGE);
-				options.setAppActivity(Web_Constants.Preprod_APP_ACTIVITY);
-			} else {
-				options.setAppPackage(Web_Constants.APP_PACKAGE);
-				options.setAppActivity(Web_Constants.APP_ACTIVITY);
-			}
-			options.setCapability("autoAcceptAlerts", true);
-			options.setCapability("enforceXPath1", true);
-			if (GlobalVariables.reset == true) {
-				options.setCapability("noReset", false);
-				options.setCapability("fastReset", true);
-			} else {
-				options.setCapability("noReset", Web_Constants.NO_RESET_FLAG);
-				options.setCapability("fastReset", Web_Constants.FULL_RESET_FLAG);
-			}
+			options.setAppPackage(Web_Constants.APP_PACKAGE);
+			options.setAppActivity(Web_Constants.APP_ACTIVITY);
+			options.setCapability("noReset", Web_Constants.NO_RESET_FLAG);
+			options.setCapability("fastReset", Web_Constants.FULL_RESET_FLAG);
 			options.setDisableWindowAnimation(true);
-			options.setCapability("–session-override", true);
+			
 			
 			try {
 				
 ////				 -s " + Web_Constants.UDID +
 ////				Runtime.getRuntime().exec("adb shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
-//					Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
-//					
-			} catch (Exception e) {
+					Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am start -n com.sonyliv/com.sonyliv.ui.splash.SplashActivity");
+				    Thread.sleep(3000);			
+				    } catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
