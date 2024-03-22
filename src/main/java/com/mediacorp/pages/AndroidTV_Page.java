@@ -23,10 +23,14 @@ public class AndroidTV_Page {
 	}
 	
 	
+	
+	@FindBy(xpath = "//android.widget.TextView[@text='ifocus']/..//android.widget.ImageView[@resource-id='com.sonyliv:id/iv_profile']")
+	public WebElement whoWatchingProfile;
+	
 	@FindBy(id = "com.sonyliv:id/sonyLivLogo")
 	public WebElement HomeLogoOfAndroidTV;
 	
-	@FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.sonyliv:id/menu_image'])[2]")
+	@FindBy(xpath = "(//android.widget.ImageView[@resource-id='com.sonyliv:id/menu_image'])[1]")
 	public WebElement searchButtonOfAndroidTv;
 	
 	@FindBy(id = "com.sonyliv:id/editSearch")

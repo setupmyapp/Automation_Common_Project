@@ -48,14 +48,14 @@ public class Web_Constants {
 //	public static String PROJECT= "MobileRW", OS = "Windows", PLATFORM_NAME = "Android", browser = "Chrome";
 //	public static String PROJECT= "MobileRW", OS = "Mac", PLATFORM_NAME = "iOS", browser = "Safari";
  	
-//    public static String PROJECT = "AndroidApp", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
+    public static String PROJECT = "AndroidApp", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
 //      public static String PROJECT = "AndroidApp", OS = "Windows", PLATFORM_NAME = "AndroidTAB", browser = "Android";
 // 	public static String PROJECT= "iOSApp", OS = "Mac", PLATFORM_NAME = "ios", browser = "Safari";
-	public static String PROJECT = "AndroidTV", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
+//	public static String PROJECT = "AndroidTV", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
 // 	public static String PROJECT= "iOSApp", OS = "Mac", PLATFORM_NAME = "ios", browser = "Safari";
 //	public static String PROJECT= "iOSApp", OS = "Mac", PLATFORM_NAME = "ipad", browser = "Safari";
 	
-	//	public static String PROJECT = "AndroidTV", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
+//		public static String PROJECT = "AndroidTV", OS = "Windows", PLATFORM_NAME = "Android", browser = "Android";
 
 	public static final String APK_PATH = System.getProperty("user.dir") + "\\Apps\\Android\\mewatch-prod-5.3.402(50821)-release.apk";
 	public static final String DownGrade_APK_PATH = "C://Users//"+System.getProperty("user.name")+"//Downloads//mewatch-prod-5.5.550(54586)-release.apk";
@@ -141,7 +141,7 @@ public class Web_Constants {
 //	public static String UDID = "RZ8M303Z0TE";public static String DEVICE_NAME = "device";public static String DEVICE_VERSION = "11";
 //	public static String UDID = "32012439840d5631";public static String DEVICE_NAME = "Samsung";public static String DEVICE_VERSION = "10";
 //	public static String UDID = "17241JEC214467";public static String DEVICE_NAME = "Huawei";public static String DEVICE_VERSION = "10";
-	public static String UDID = "192.168.0.156:5555";public static String DEVICE_NAME = "Samsung";public static String DEVICE_VERSION = "11";
+	public static String UDID = "RZ8R22LWTGF";public static String DEVICE_NAME = "Samsung";public static String DEVICE_VERSION = "11";
 // 	public static String UDID = "192.168.0.149:5555";public static String DEVICE_NAME = "Samsung";public static String DEVICE_VERSION = "11";
 //	public static String UDID = "33001ef1d426c37f";public static String DEVICE_NAME = "Vivo";public static String DEVICE_VERSION = "8.1.0";
 

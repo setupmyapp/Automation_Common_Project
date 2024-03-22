@@ -54,7 +54,11 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		EventUtilsnew eventUtils = new EventUtilsnew(driver,test);
 		AndroidTV_Page androidTV_Page = new AndroidTV_Page(driver);
 
-
+		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.whoWatchingProfile, 20)) {
+			eventUtils.clickOnElement(androidTV_Page.whoWatchingProfile, "whoWatchingProfile", 20);
+		} else {
+			logStatus("info", "User is not able to see whoWatchingProfile");
+		}
 
 		
 
@@ -112,15 +116,15 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		}
 		
 		Utilities.clickOnRecord();
-		try {
-			
-			eventUtils.upButton(test);
-			
-			eventUtils.okButton(test);
-			} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			
+//			eventUtils.upButton(test);
+//			
+//			eventUtils.okButton(test);
+//			} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 //		eventUtils.sleep(3);
 //		if (eventUtils.waitUntilElementIsVisible(androidTV_Page.playerOfShowDetailsPageOfAndroidTV, 10)) {
