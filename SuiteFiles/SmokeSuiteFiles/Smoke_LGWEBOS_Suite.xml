@@ -7,7 +7,7 @@
 
 		<classes>
 		 
-		<class name="com.mediacorp.testRunner.Smoke.SmokeSuiteLGWEBOSTV" />
+		<class name="com.mediacorp.testRunner.Smoke.SmokeSuiteLGWEBOSTV2" />
 
 		</classes>
 

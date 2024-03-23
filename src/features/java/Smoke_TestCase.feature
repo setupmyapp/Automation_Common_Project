@@ -28,8 +28,14 @@ Feature: Smoke TestCase Functionality
     Given Launching the Application AndroidTV
     Then Verify the playback for the Show AndroidTV  
     
-   @Demo_LGWEBOSTV
-  Scenario: Demo TestCase For Guest User playBack Functionality LGWEBOSTV
-    Given As a Anonymous user Navigate to IDP page
-    When User Selecting the Watch Now CTA from IDP page
-    Then verify the Series content should start playing
+   #@Demo_LGWEBOSTV
+  #Scenario: Demo TestCase For Guest User playBack Functionality LGWEBOSTV
+    #Given As a Anonymous user Navigate to IDP page
+    #When User Selecting the Watch Now CTA from IDP page
+    #Then verify the Series content should start playing
+    
+    @Demo_LGWEBOSTV2
+  Scenario: Demo TestCase For Guest User playBack Functionality LGWEBOSTV2
+    Given As a Anonymous user Navigate to IDP page2
+     When User Selecting the Watch Now CTA from IDP page2
+      Then verify the Series content should start playing2

@@ -37,6 +37,10 @@ public class IOS_Page {
 	
 	
 	
+	@FindBy(xpath = "//XCUIElementTypeStaticText[contains(@name,'Resume')]")
+	public WebElement resumeButtonIOS;
+
+	
 	@FindBy(xpath = "//XCUIElementTypeImage[@name='Mask']")
 	public WebElement searchResultContentOfAndroid;
 
