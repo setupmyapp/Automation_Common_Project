@@ -111,20 +111,21 @@ public class Sony_IOS_Demo extends BaseTest {
 
 		
 
-//		eventUtils.sleep(3);
-//		String searchResultContent = eventUtils.getTextOfWebelement(android_Page.searchResultContentOfAndroid, 20);
-//		if (eventUtils.waitUntilElementIsVisible(android_Page.searchResultContentOfAndroid, 20)
-//				&& eventUtils.waitUntilElementIsVisible(android_Page.PlayButtonOfAndroid, 20)) 
-//		{
-//			eventUtils.clickOnElement(android_Page.PlayButtonOfAndroid, "Play Button Of Andoid", 20);
-//			logStatus("pass", "User is able to click on Play button Of searched content Of Android");
-//		} else {
-//			logStatus("fail", "User is not able to click on Play button Of searched content Of Android");
-//		}
+		eventUtils.sleep(3);
+		String searchResultContent = eventUtils.getTextOfWebelement(android_Page.searchResultContentOfAndroid, 20);
+		if (eventUtils.waitUntilElementIsVisible(android_Page.searchResultContentOfAndroid, 20)
+				&& eventUtils.waitUntilElementIsVisible(android_Page.PlayButtonOfAndroid, 20)) 
+		{
+			eventUtils.clickOnElement(android_Page.PlayButtonOfAndroid, "Play Button Of Andoid", 20);
+			logStatus("pass", "User is able to click on Play button Of searched content Of Android");
+		} else {
+			logStatus("fail", "User is not able to click on Play button Of searched content Of Android");
+		}
 
 		eventUtils.sleep(3);
 		String TitleOfSearchResult = eventUtils.getTextOfWebelement(android_Page.TitleOfSearchResultOfAndroid, 20);
-		if (eventUtils.waitUntilElementIsVisible(android_Page.watchButtonOfAndroid, 20)) {
+		if (searchResultContent.contains(TitleOfSearchResult)
+				&& eventUtils.waitUntilElementIsVisible(android_Page.watchButtonOfAndroid, 20)) {
 		   android_Page.watchButtonOfAndroid.click();
 			logStatus("pass", "User is able to click on Watch button Of searched content Of Android");
 		} else  if ( eventUtils.waitUntilElementIsVisible(android_Page.resumeButtonIOS, 20)){
