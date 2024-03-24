@@ -106,7 +106,12 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 		} else {
 			logStatus("fail", "User is not able to click on watch Button of Search Content Of AndroidTv");
 		}
-
+		try {
+		Utilities.closeRecordApp();
+		} catch (Exception e) {
+			
+		}
+		
 		eventUtils.sleep(30);
 		try {
 			Utilities.openCamera();
@@ -188,29 +193,8 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 	public void tearDown(Scenario scenario) {
 		try {
 			
-			try {
-				Utilities utilities = new Utilities();
-				
-				utilities.stopAppiumServerone();
-			} catch (Exception e) {
-				
-			}
-			
-			
-			try {
-				driver.close();
-			} catch (Exception e) {
-				
-			}
-			try {
-				driver.quit();
-			} catch (Exception e) {
-				
-			}
-			
-			
-			
-			
+			Runtime.getRuntime().exec("adb -s "+Web_Constants.UDID+" shell am force-stop com.sonyliv");
+			 
 			
 			killBrowser();
 		} catch (Exception e) {
