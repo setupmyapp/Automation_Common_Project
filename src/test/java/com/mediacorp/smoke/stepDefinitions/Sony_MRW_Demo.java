@@ -24,6 +24,7 @@ import org.testng.annotations.Test;
 import com.mediacorp.pages.MobileRW_Page;
 import com.mediacorp.utils.BaseTest;
 import com.mediacorp.utils.EventUtilsnew;
+import com.mediacorp.utils.Utilities;
 
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -171,8 +172,32 @@ public class Sony_MRW_Demo extends BaseTest {
 	public void tearDown(Scenario scenario) {
 		try {
 			
+			try {
+				Utilities utilities = new Utilities();
+				
+				utilities.stopAppiumServerone();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			try {
+				driver.close();
+			} catch (Exception e) {
+				
+			}
+			try {
+				driver.quit();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			
+			
+			
 			killBrowser();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

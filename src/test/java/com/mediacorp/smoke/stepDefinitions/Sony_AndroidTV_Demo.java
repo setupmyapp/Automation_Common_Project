@@ -188,8 +188,32 @@ public class Sony_AndroidTV_Demo extends BaseTest {
 	public void tearDown(Scenario scenario) {
 		try {
 			
+			try {
+				Utilities utilities = new Utilities();
+				
+				utilities.stopAppiumServerone();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			try {
+				driver.close();
+			} catch (Exception e) {
+				
+			}
+			try {
+				driver.quit();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			
+			
+			
 			killBrowser();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

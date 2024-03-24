@@ -218,7 +218,7 @@ public class LGWEBOS2  extends BaseTest {
 		 String playerScreen="//div[@class='Player-Wrapper']//video";
 		 waitForElement(playerScreen);
 		
-		 eventUtils.sleep(10);
+		 eventUtils.sleep(120);
 		
 		try {
 			driver.findElement(By.xpath(playerScreen));

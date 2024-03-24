@@ -487,6 +487,24 @@ public class Utilities {
 		// test.log(Status.INFO, "service::" + service.isRunning());
 
 	}
+	
+	public void stopAppiumServerone() {
+
+		try {
+			
+			
+				System.out.println("Stopping Appium Server");
+				service.stop();
+				System.out.println("Appium Server Stopped");
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// test.log(Status.INFO, "service::" + service.isRunning());
+
+	}
 
 	public void installingApplication(String environment, ExtentTest test) {
 		RemoteWebDriver driver;

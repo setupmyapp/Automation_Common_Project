@@ -26,6 +26,7 @@ import com.mediacorp.pages.Android_Page;
 import com.mediacorp.pages.MobileRW_Page;
 import com.mediacorp.utils.BaseTest;
 import com.mediacorp.utils.EventUtilsnew;
+import com.mediacorp.utils.Utilities;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
@@ -144,8 +145,32 @@ public class Sony_Android_Demo extends BaseTest {
 	public void tearDown(Scenario scenario) {
 		try {
 			
+			try {
+				Utilities utilities = new Utilities();
+				
+				utilities.stopAppiumServerone();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			try {
+				driver.close();
+			} catch (Exception e) {
+				
+			}
+			try {
+				driver.quit();
+			} catch (Exception e) {
+				
+			}
+			
+			
+			
+			
+			
 			killBrowser();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
