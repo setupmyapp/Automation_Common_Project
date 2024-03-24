@@ -84,12 +84,9 @@ public class ReportConfigurations extends AbstractTestNGCucumberTests {
 			browser_Stack = Web_Constants.browser_Stack;
 		}
 		
-		KLOV_FLAG= System.getProperty("KLOV_FLAG");
+	
 
-		if (KLOV_FLAG == null) {
-			System.out.println("Jenkins KLOV_FLAG Value:-" + KLOV_FLAG);
-			KLOV_FLAG = Web_Constants.KLOV_FLAG;
-		}
+		KLOV_FLAG = Web_Constants.KLOV_FLAG;
 		
 		switch (UDID) {
 
