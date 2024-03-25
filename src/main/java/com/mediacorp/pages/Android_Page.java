@@ -43,5 +43,8 @@ public class Android_Page {
 
 	@FindBy(xpath = "//android.widget.FrameLayout[@resource-id='com.sonyliv:id/play_button_holder']//android.widget.LinearLayout")
 	public WebElement watchButtonOfAndroid;
+	
+	@FindBy(id = "com.sonyliv:id/pt_btnOrientation")
+	public WebElement fullScreenIcon;
 
 }

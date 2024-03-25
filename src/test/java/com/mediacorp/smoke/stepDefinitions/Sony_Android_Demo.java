@@ -8,6 +8,7 @@ import java.net.URISyntaxException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -17,6 +18,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Pause;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -136,10 +141,59 @@ public class Sony_Android_Demo extends BaseTest {
 		logStatus("pass",
 				"user is able to see back Button,backwardbtn,playbtn,forwardbtn,Setting Button ,fullscreenbtn,on Show Details Page");
 	
+		 
+		
+		for(int i=0;i<10;i++)
+		{
+			try {
+				
+				android_Page.fullScreenIcon.click();
+				
+				logStatus("pass",
+						"User Playing cotent in full screen");
+			
+				break;
+			} catch (Exception e) {
+				clickUsingCoordinate(driver, 0.28, 0.08);
+				
+				
+			}
+		}
+		
+		
+		
 	}
 	
 	
-	
+	public void clickUsingCoordinate(RemoteWebDriver driver,double startX,double endX)
+	{
+		int screenwidth = driver.manage().window().getSize().getWidth();
+		int screenheight = driver.manage().window().getSize().getHeight();
+		int startx = (int) (screenwidth * startX);
+		int starty = (int) (screenheight * endX);
+
+		try {
+			//			new TouchAction((AppiumDriver<WebElement>) driver).tap(PointOption.point(startx, starty)).release()
+			//			.perform();
+
+
+			try {
+			    PointerInput finger1 = new PointerInput(PointerInput.Kind.TOUCH, "finger1");
+			    Sequence sequence = new Sequence(finger1, 1)
+			        .addAction(finger1.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(),startx,starty ))
+			        .addAction(finger1.createPointerDown(PointerInput.MouseButton.LEFT.asArg()))
+			        .addAction(new Pause(finger1, Duration.ofMillis(200)))
+			        .addAction(finger1.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+			    System.out.println("clicked"); 
+			    driver.perform(Collections.singletonList(sequence));
+
+			} catch (Exception e) {
+			}
+
+		} catch (Exception e) {
+		}
+
+	}
 	
 	
 	@After("@Demo_Android")
